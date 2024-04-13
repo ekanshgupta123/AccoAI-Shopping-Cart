@@ -31,7 +31,7 @@ export default function Home() {
   }, []);
 
 
-// When user clicks on cart, redirect to this page
+// When user clicks on product, redirect to this page
 const handleCardClick = (productId) => {
     navigate(`/product/${productId}`);
 };
