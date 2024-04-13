@@ -43,17 +43,23 @@ const ProductDetails = () => {
 
   return (
     <div className="product-details-container">
-      <div className="product-image">
-        <img src={product.image} alt={product.name} />
-      </div>
-      <div className="product-info">
-        <h1>{product.name}</h1>
-        <p className="product-description">{product.Description}</p>
-        <p className="product-price">${Number(product.price).toFixed(2)}</p>
-        <button className="add-to-cart-btn" onClick={() => handleAddToCart(product)}>Add to Cart</button>
-      </div>
+      {product ? (
+        <>
+          <div className="product-image">
+            <img src={product.image} alt={product.name} />
+          </div>
+          <div className="product-info">
+            <h1>{product.name}</h1>
+            <p className="product-description">{product.Description}</p> {/* Note: changed Description to description */}
+            <p className="product-price">${Number(product.price).toFixed(2)}</p>
+            <button className="add-to-cart-btn" onClick={() => handleAddToCart(product)}>Add to Cart</button>
+          </div>
+        </>
+      ) : (
+        <p>Loading product details...</p> // Or any other loading indicator
+      )}
     </div>
   );
-};
+  };
 
 export default ProductDetails;
